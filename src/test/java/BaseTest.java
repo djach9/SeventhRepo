@@ -18,12 +18,12 @@ public class BaseTest {
     @BeforeEach
     void setupDriver(){
         driver = new ChromeDriver();
-        log.debug("Uruchomiono przeglądarkę Chrome");
+        log.debug("Chrome browser opened");
     }
     @AfterEach
     void teardown(){
         System.out.println("driver is closed");
-        log.debug("Zamknięto przeglądarkę Chrome");
+        log.debug("Chrome browser closed");
         driver.quit();
     }
 }
