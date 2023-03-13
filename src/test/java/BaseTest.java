@@ -4,9 +4,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.apache.log4j.Logger;
 
 public class BaseTest {
     protected WebDriver driver;
+    private static final Logger log = Logger.getLogger(BaseTest.class);
+
 
     @BeforeAll
     static void setup(){
@@ -15,10 +18,12 @@ public class BaseTest {
     @BeforeEach
     void setupDriver(){
         driver = new ChromeDriver();
+        log.debug("Uruchomiono przeglądarkę Chrome");
     }
     @AfterEach
     void teardown(){
         System.out.println("driver is closed");
+        log.debug("Zamknięto przeglądarkę Chrome");
         driver.quit();
     }
 }
